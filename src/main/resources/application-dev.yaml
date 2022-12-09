@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:~/mem_data/lightfeather;MODE=PostgreSQL;
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    baseline-on-migrate: true
+
+feign_custom:
+  retry.max: 10
+  retry.interval: 2000
+
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 160000000
+        readTimeout: 160000000
+        loggerLevel: full
+        error-decoder: com.lightfeather.personalinfolightfeather.config.FeignErrorDecoder
+        retryer: com.lightfeather.personalinfolightfeather.config.FeignRetrier
+
+client:
+  supervisor_baseurl: ${SUPERVISOR_ENDPOINT:https://o3m5qixdng.execute-api.us-east-1.amazonaws.com/api}
+

@@ -3,6 +3,7 @@ package com.lightfeather.personalinfolightfeather.dto.supervisor;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -11,12 +12,13 @@ import java.io.Serializable;
  */
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class SupervisorDto implements Serializable {
-    private final String id;
-    private final String phone;
-    private final String jurisdiction;
-    private final String identificationNumber;
-    private final String firstName;
-    private final String lastName;
+    private long id;
+    private String phone;
+    private String jurisdiction;
+    private String identificationNumber;
+    private String firstName;
+    private String lastName;
 }

@@ -1,17 +1,16 @@
 spring:
   datasource:
-    url: jdbc:h2:file:~/mem_data/users;MODE=PostgreSQL;
+    url: jdbc:h2:file:~/mem_data/lightfeather;MODE=PostgreSQL;
     username: sa
     password:
     driver-class-name: org.h2.Driver
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
-
+      ddl-auto: create-drop
 
 feign_custom:
-  retry.max: 10
+  retry.max: 5
   retry.interval: 2000
 
 feign:
@@ -25,5 +24,5 @@ feign:
         retryer: com.lightfeather.personalinfolightfeather.config.FeignRetrier
 
 client:
-  supervisor_baseurl: ${SUPERVISOR_ENDPOINT:-"https://o3m5qixdng.execute-api.us-east-1.amazonaws.com/api"}
+  supervisor_baseurl: localhost:9000
 
