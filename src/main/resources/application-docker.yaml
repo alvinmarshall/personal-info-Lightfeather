@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${db-source.host}/${db-source.name}
+    username: ${db-source.username}
+    password: ${db-source.password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    baseline-on-migrate: true
+
+db-source:
+  host: ${DATABASE_HOST}
+  username: ${DATABASE_USER}
+  password: ${DATABASE_PASSWORD}
+  name: ${DATABASE_NAME}
+
+
+feign_custom:
+  retry.max: 10
+  retry.interval: 2000
+
+client:
+  supervisor_baseurl: ${SUPERVISOR_ENDPOINT}
