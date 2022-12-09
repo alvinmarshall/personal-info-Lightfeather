@@ -10,3 +10,20 @@ spring:
       ddl-auto: update
 
 
+feign_custom:
+  retry.max: 10
+  retry.interval: 2000
+
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 160000000
+        readTimeout: 160000000
+        loggerLevel: full
+        error-decoder: com.lightfeather.personalinfolightfeather.config.FeignErrorDecoder
+        retryer: com.lightfeather.personalinfolightfeather.config.FeignRetrier
+
+client:
+  supervisor_baseurl: ${SUPERVISOR_ENDPOINT:-"https://o3m5qixdng.execute-api.us-east-1.amazonaws.com/api"}
+
