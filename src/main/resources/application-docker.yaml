@@ -19,8 +19,18 @@ db-source:
 
 
 feign_custom:
-  retry.max: 10
-  retry.interval: 2000
+  retry.max: 5
+  retry.interval:
+
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 160000000
+        readTimeout: 160000000
+        loggerLevel: full
+        error-decoder: com.lightfeather.personalinfolightfeather.config.FeignErrorDecoder
+        retryer: com.lightfeather.personalinfolightfeather.config.FeignRetrier
 
 client:
   supervisor_baseurl: ${SUPERVISOR_ENDPOINT}
