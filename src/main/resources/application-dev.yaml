@@ -12,7 +12,7 @@ spring:
     baseline-on-migrate: true
 
 feign_custom:
-  retry.max: 10
+  retry.max: 5
   retry.interval: 2000
 
 feign:
